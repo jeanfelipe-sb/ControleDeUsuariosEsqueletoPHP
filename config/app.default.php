@@ -64,7 +64,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '__SALT__'),
+        'salt' => env('SECURITY_SALT', 'c7ab358b8ed70409cb4a057eaaa847d704fc0573572198be821a1ecc6c11a773'),
     ],
 
     /**
@@ -189,6 +189,20 @@ return [
             'tls' => null,
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
+        'yahoo' => [
+            'className' => 'Smtp',
+            // The following keys are used in SMTP transports
+            'host' => 'ssl://smtp.mail.yahoo.com',
+            'port' => 465,
+            'timeout' => 30,
+            'username' => 'jiam16@yahoo.com.br',
+            'password' => 'Jfsb3673',
+            'client' => null,
+            'tls' => null,
+            'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
+        ],
+        
+        
     ],
 
     /**
@@ -204,6 +218,12 @@ return [
         'default' => [
             'transport' => 'default',
             'from' => 'you@localhost',
+            //'charset' => 'utf-8',
+            //'headerCharset' => 'utf-8',
+        ],
+        'canecas' => [
+            'transport' => 'yahoo',
+            'from' => ['jiam16@yahoo.com.br'=> 'Site Canecas'],
             //'charset' => 'utf-8',
             //'headerCharset' => 'utf-8',
         ],
@@ -229,9 +249,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'canecas',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],
